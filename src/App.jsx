@@ -12,16 +12,16 @@ function App() {
 
   return (
     <>
-    <section className='principal'>
-  <Seach/>
-  <Gps/>
-  <Dia/>
-  </section>
-  <Cambio>gol</Cambio>
-  <Semana/>
-  
-  <Adicionales/>
-  
+      <section className='principal'>
+        <Seach />
+        <Gps />
+        <Dia />
+      </section>
+      <Cambio>gol</Cambio>
+      <Semana />
+
+      <Adicionales />
+
     </>
   )
 }
