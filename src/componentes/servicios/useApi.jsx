@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react';
+import Search from '../Seach';
 
 function useApi() {
-  const city = "mexico";
+  const  city = "mexico"
   const [data, setData] = useState(null);
   const [currentDate, setCurrentDate] = useState("");
   const [cambioImg, setCambioImg] = useState(null);
 
   const cambioImgs = {
-    Clear: "./public/img/Clear.png",
+    Clear: "https://scontent.fmex1-5.fna.fbcdn.net/v/t39.30808-6/380821275_6973001162718244_7261190589252990631_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=49d041&_nc_eui2=AeEvMC-21lg1PfNY-imYmUzAwAp7d2-VKiDACnt3b5UqIPN0pAFegBdLzwcj1jiZ1EOPAGe7W6D9g0asDT_8AYxm&_nc_ohc=pqEYvqA2vSMAX9IDB2t&_nc_ht=scontent.fmex1-5.fna&oh=00_AfANM936Es9GNRBx3ks-UVqPlVODDLsmmM8NTl4XxM5DWA&oe=6517FEFC",
     Hail: "./public/img/Hail.png",
     Cloud: "./public/img/HeavyCloud.png",
     Rain: "./public/img/HeavyRain.png",
@@ -22,7 +23,7 @@ function useApi() {
   useEffect(() => {
     const getData = async () => {
       const api = await fetch(
-        `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=77e264a1bc872421b4e6ee74fc81cb0e`
+        `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`
       );
       const datos = await api.json();
 
@@ -44,6 +45,9 @@ function useApi() {
     const year = today.getFullYear();
     setCurrentDate(`${day}/${month}/${year}`);
   }, []);
+
+  
+ 
 
   return { data, currentDate, cambioImg };
 }
