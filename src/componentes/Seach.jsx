@@ -2,9 +2,11 @@ function Seach(){
 
     return(
         <section>
-            <button>
-                Seach for places
-            </button>
+            <form >
+                <label htmlFor="name">location</label>
+                <input type="text" />
+            <button>Seach for places</button>
+            </form>
         </section>
     )
 }
