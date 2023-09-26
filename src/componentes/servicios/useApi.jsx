@@ -1,23 +1,24 @@
 import React, { useState, useEffect } from 'react';
-import Search from '../Seach';
 
 function useApi() {
-  const  city = "mexico"
+  const city = "london"; 
   const [data, setData] = useState(null);
   const [currentDate, setCurrentDate] = useState("");
-  const [cambioImg, setCambioImg] = useState(null);
+  const [cambioImg, setCambioImg] = useState({});
+
+  const apiKey = '77e264a1bc872421b4e6ee74fc81cb0e';
 
   const cambioImgs = {
-    Clear: "https://scontent.fmex1-5.fna.fbcdn.net/v/t39.30808-6/380821275_6973001162718244_7261190589252990631_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=49d041&_nc_eui2=AeEvMC-21lg1PfNY-imYmUzAwAp7d2-VKiDACnt3b5UqIPN0pAFegBdLzwcj1jiZ1EOPAGe7W6D9g0asDT_8AYxm&_nc_ohc=pqEYvqA2vSMAX9IDB2t&_nc_ht=scontent.fmex1-5.fna&oh=00_AfANM936Es9GNRBx3ks-UVqPlVODDLsmmM8NTl4XxM5DWA&oe=6517FEFC",
-    Hail: "./public/img/Hail.png",
-    Cloud: "./public/img/HeavyCloud.png",
-    Rain: "./public/img/HeavyRain.png",
-    Clouds: "./public/img/LightCloud.png",
-    LightRain: "./public/img/LightRain.png",
-    Shower: "./public/img/Shower.png",
-    Sleet: "./public/img/Sleet.png",
-    Snow: "./public/img/Snow.png",
-    Thunderstorm: "./public/img/Thunderstorm.png",
+    Clear: "https://openweathermap.org/img/wn/01d@2x.png",
+    Hail: "https://openweathermap.org/img/wn/05d@2x.png",
+    Cloud: "https://openweathermap.org/img/wn/02d@2x.png",
+    Rain: "https://openweathermap.org/img/wn/09d@2x.png",
+    Clouds: "https://openweathermap.org/img/wn/03d@2x.png",
+    LightRain: "https://openweathermap.org/img/wn/10d@2x.png",
+    Shower: "https://openweathermap.org/img/wn/09d@2x.png",
+    Sleet: "https://openweathermap.org/img/wn/13d@2x.png",
+    Snow: "https://openweathermap.org/img/wn/13d@2x.png",
+    Thunderstorm: "https://openweathermap.org/img/wn/11d@2x.png",
   };
 
   useEffect(() => {
@@ -30,24 +31,23 @@ function useApi() {
       console.log(datos);
       setData(datos);
 
-      // Obtener la descripción del clima para seleccionar la imagen adecuada
+      // Obtener el código de icono del clima para seleccionar la imagen adecuada
       const weatherDescription = datos.weather[0].main;
-      if (cambioImgs[weatherDescription]) {
-        setCambioImg(cambioImgs[weatherDescription]);
+      const weatherIconCode = cambioImgs[weatherDescription];
+      if (weatherIconCode) {
+        setCambioImg({ [weatherDescription]: weatherIconCode });
       }
+      
     };
     getData();
 
-    // Obtener la fecha actual y formatearla
+   
     const today = new Date();
     const day = today.getDate();
     const month = today.getMonth() + 1;
     const year = today.getFullYear();
     setCurrentDate(`${day}/${month}/${year}`);
   }, []);
-
-  
- 
 
   return { data, currentDate, cambioImg };
 }

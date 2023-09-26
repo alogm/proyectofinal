@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-function Search({ onSearch }) {
+function Seach({ onSearch }) {
   const [city, setCity] = useState('');
 
   const handleInputChange = (e) => {
@@ -11,16 +11,17 @@ function Search({ onSearch }) {
     try {
       const apiKey = '77e264a1bc872421b4e6ee74fc81cb0e'; 
       const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-      
+
       const response = await fetch(apiUrl);
       if (!response.ok) {
         throw new Error('Network response was not ok');
       }
-      
+
       const data = await response.json();
-      onSearch(data);
+      onSearch(data); // Envía los datos al componente principal
+      onCityChange(city);
     } catch (error) {
-      console.error('Error fetching weather data:', error);
+      
     }
   };
 
@@ -37,4 +38,4 @@ function Search({ onSearch }) {
   );
 }
 
-export default Search;
+export default Seach;
