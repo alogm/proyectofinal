@@ -20,7 +20,7 @@ function Semana({data, cambioImg}){
     useEffect(() => {
         const getSemanas = async () => {
             const seman = await fetch(
-                `https://api.openweathermap.org/data/2.5/forecast?q=rusia&appid=77e264a1bc872421b4e6ee74fc81cb0e`
+                `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=77e264a1bc872421b4e6ee74fc81cb0e`
                 
             );
             const semans = await seman.json();
