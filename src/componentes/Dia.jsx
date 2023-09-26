@@ -1,11 +1,15 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
-function Dia({ data, currentDate, cambioImg}) {
+function Dia({ data, currentDate, cambioImg }) {
+  useEffect(() => {
+   
+  }, [data]);
+
   return (
     <section className="pag">
       {cambioImg && <img src={cambioImg} alt="clima" />}
       <div>
-        <h1>{data ? data.main.temp : "Loading..."}</h1>
+        <h1>{data ? data.main.temp : "Loading..."}c°</h1>
       </div>
       <div>
         <h3>{data ? data.weather[0].main : "Loading..."}</h3>

@@ -1,73 +1,57 @@
+import React, { useEffect, useState } from "react";
 
-import { useEffect, useState } from "react"
+function Semana({ city }) {
+  const [semanas, setSemanas] = useState(null);
+  const apiKey = "77e264a1bc872421b4e6ee74fc81cb0e"; // 
+ // const city = "venezuela"; 
 
-function Semana({data, cambioImg}){
-    const [semanas, setSemanas] = useState(null)
+  const cambioSemana = {
+    Clear: "https://openweathermap.org/img/wn/01d@2x.png",
+    Hail: "https://openweathermap.org/img/wn/05d@2x.png",
+    Cloud: "https://openweathermap.org/img/wn/02d@2x.png",
+    Rain: "https://openweathermap.org/img/wn/09d@2x.png",
+    Clouds: "https://openweathermap.org/img/wn/03d@2x.png",
+    LightRain: "https://openweathermap.org/img/wn/10d@2x.png",
+    Shower: "https://openweathermap.org/img/wn/09d@2x.png",
+    Sleet: "https://openweathermap.org/img/wn/13d@2x.png",
+    Snow: "https://openweathermap.org/img/wn/13d@2x.png",
+    Thunderstorm: "https://openweathermap.org/img/wn/11d@2x.png",
+  };
 
-    const cambioSEmana = {
-        Clear: "./public/img/Clear.png",
-        Hail: "./public/img/Hail.png",
-        Cloud: "./public/img/HeavyCloud.png",
-        Rain: "./public/img/HeavyRain.png",
-        Clouds: "./public/img/LightCloud.png",
-        LightRain: "./public/img/LightRain.png",
-        Shower: "./public/img/Shower.png",
-        Sleet: "./public/img/Sleet.png",
-        Snow: "./public/img/Snow.png",
-        Thunderstorm: "./public/img/Thunderstorm.png",
-      };
+  useEffect(() => {
+    const getSemanas = async () => {
+      try {
+        const apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}`;
+        const response = await fetch(apiUrl);
 
-    useEffect(() => {
-        const getSemanas = async () => {
-            const seman = await fetch(
-                `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=77e264a1bc872421b4e6ee74fc81cb0e`
-                
-            );
-            const semans = await seman.json();
-
-            console.log(semans);
-            setSemanas(semans)
-
-            const weatherDescription = datos.weather[0].main;
-      if (cambioSEmana[weatherDescription]) {
-        setCambioImg(cambioSEmana[weatherDescription]);
-      }
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
         }
+
+        const semans = await response.json();
+        setSemanas(semans);
+      } catch (error) {
+        
+      }
+    };
+    if (city) {
         getSemanas();
-    },[]);
+      }
+  }, [city]);
 
-
-    return(
-       <section className="semana">
-            <section className="semana1">
-                <h1>{semanas ? semanas.list[1].dt_txt : "Loading..."}</h1>
-                <img src={cambioImg} alt="clima" />
-                <h1>{semanas ? semanas.list[1].main.temp_min : "Loading..."}°c</h1><h1>{semanas ? semanas.list[1].main.temp_max : "Loading..."}°c</h1>
-            </section>
-
-            <section className="semana2">
-                <h1>{semanas ? semanas.list[9].dt_txt : "Loading..."}</h1>
-                <img src={cambioImg} alt="" />
-                <h1>{semanas ? semanas.list[9].main.temp_min : "Loading..."}°c</h1><h1>{semanas ? semanas.list[9].main.temp_max : "Loading..."}°c</h1>
-            </section>
-
-            <section className="semana3">
-                <h1>{semanas ? semanas.list[17].dt_txt : "Loading..."}</h1>
-                <img src={cambioImg} alt="" />
-                <h1>{semanas ? semanas.list[17].main.temp_min : "Loading..."}°c</h1><h1>{semanas ? semanas.list[17].main.temp_max : "Loading..."}°c</h1>
-            </section>
-
-            <section className="semana4">
-                <h1>{semanas ? semanas.list[25].dt_txt : "Loading..."}</h1>
-                <img src={cambioImg} alt="" />
-                <h1>{semanas ? semanas.list[25].main.temp_min : "Loading..."}°c</h1><h1>{semanas ? semanas.list[25].main.temp_max : "Loading..."}°c</h1>
-            </section>
-            <section className="semana5">
-                <h1>{semanas ? semanas.list[33].dt_txt : "Loading..."}</h1>
-                <img src={cambioImg} alt="" />
-                <h1>{semanas ? semanas.list[33].main.temp_min : "Loading..."}°c</h1><h1>{semanas ? semanas.list[33].main.temp_max : "Loading..."}°c</h1>
-            </section>
-        </section>
-    )
+  return (
+    <section className="semana">
+      {semanas &&
+        [1, 9, 17, 25, 33].map((index) => (
+          <section className={`semana${index}`} key={index}>
+            <h1>{semanas.list[index].dt_txt}</h1>
+            <img src={cambioSemana[semanas.list[index].weather[0].main]} alt="clima" />
+            <h1>{semanas.list[index].main.temp_min}°c</h1>
+            <h1>{semanas.list[index].main.temp_max}°c</h1>
+          </section>
+        ))}
+    </section>
+  );
 }
-export default Semana
+
+export default Semana;
