@@ -9,9 +9,14 @@ import Cambio from './componentes/Cambio'
 import useApi from './componentes/servicios/useApi'
 
 function App() {
-  const { data, currentDate, cambioImg } = useApi();
+  const [latitude, setLatitude] = useState(null);
+  const [longitude, setLongitude] = useState(null);
+  const { data, currentDate} = useApi(latitude, longitude);
   const [weatherData, setWeatherData] = useState(null);
   const [city, setCity] = useState(''); // Agrega el estado para city aquí
+ 
+  
+
 
   const handleSearch = (searchData) => {
     setWeatherData(searchData);
@@ -21,15 +26,20 @@ function App() {
     setCity(newCity);
   };
 
+  const handleLocationChange = (newLatitude, newLongitude) => {
+    setLatitude(newLatitude);
+    setLongitude(newLongitude);
+  };
+
   return (
     <>
      <section className='principal'>
       <Seach onSearch={handleSearch} />
-      <Gps />
-      <Dia data={weatherData} currentDate={currentDate} cambioImg={cambioImg} city={weatherData ? weatherData.name : null} />
+      <Gps onLocationChange={handleLocationChange} />
+      <Dia data={weatherData} currentDate={currentDate} city={city} />
     </section>
     <Cambio />
-    <Semana data={weatherData} cambioImg={cambioImg} city={weatherData ? weatherData.name : null} />
+    <Semana data={weatherData}  city={weatherData ? weatherData.name : null} />
     <Adicionales data={weatherData} />
   </>
   );
