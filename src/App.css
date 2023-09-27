@@ -21,6 +21,7 @@ body{
     margin: auto;
     text-align: center; /* Esto centrará el texto horizontalmente */
     color: white; /* Cambia el color del texto si es necesario */
+    
 }
 .semana {
     display: flex;
@@ -30,7 +31,7 @@ body{
     align-items: flex-start; /* Alinea las secciones internas arriba */
     gap: 20px; /* Aumenta el espacio entre las secciones */
     position: absolute;
-    top: 50px; /* Ajusta la distancia desde la parte superior */
+    top: 10px; /* Ajusta la distancia desde la parte superior */
     right: 20px; /* Ajusta la distancia desde el lado derecho */
     
     left: 600px; /* Ajusta la distancia desde el lado izquierdo */
@@ -39,7 +40,7 @@ body{
 }
 
 /* Estilo para las secciones internas */
-.semana1, .semana9, .semana17, .semana25, .semana33 {
+.semana1, .semana9, .semana17, .semana25, .semana33, .semana2 {
     flex: 1; /* Permite que ocupen el espacio disponible en la fila */
     color: aliceblue;
     background-color: rgb(30, 33, 58);
@@ -75,7 +76,7 @@ body{
     position: absolute;
     right: 100px;
     width: auto;
-    top: 500px;
+    top: 390px;
     left: 600px;
     flex-wrap: wrap; /* Permitir que las secciones se envuelvan en filas múltiples si es necesario */
 }
@@ -88,7 +89,7 @@ body{
     position: absolute;
     right: 100px;
     width: auto;
-    top: 730px;
+    top: 630px;
     left: 600px;
     flex-wrap: wrap; /* Permitir que las secciones se envuelvan en filas múltiples si es necesario */
 
@@ -102,10 +103,30 @@ body{
     position: absolute;
     right: 100px;
     width: auto;
-    top: 400px;
+    top: 300px;
     left: 600px;
     flex-wrap: wrap; /* Permitir que las secciones se envuelvan en filas múltiples si es necesario */
     color: white;
 
   }
 
+  /* Estilo para la barra de progreso de humedad */
+.humidity-bar {
+    width: 100%;
+    height: 10px;
+    background-color: #ddd;
+    border-radius: 5px;
+  }
+  
+  .humidity-fill {
+    height: 90%;
+    border-radius: 5px;
+    background-color: #d0f308a5; /* Color de relleno de la barra */
+    transition: width 0.5s ease-in-out;
+  }
+ 
+  .por{
+    display: flex;
+    justify-content: space-between;
+    margin: -5px;
+  }
