@@ -16,6 +16,7 @@ function Semana({ city }) {
     Sleet: "https://github.com/alogm/proyectofinal/blob/master/public/img/Sleet.png?raw=true",
     Snow: "https://github.com/alogm/proyectofinal/blob/master/public/img/Snow.png?raw=true",
     Thunderstorm: "https://github.com/alogm/proyectofinal/blob/master/public/img/Thunderstorm.png?raw=true",
+    Mist: "https://img2.freepng.es/20180406/qdq/kisspng-condensation-cloud-animation-clip-art-mist-5ac7fc2920a0f2.7650557115230556571337.jpg",
   };
 
   useEffect(() => {
