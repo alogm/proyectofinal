@@ -29,7 +29,7 @@ function useApi(city = "London", latitude, longitude) {
     const month = today.getMonth() + 1;
     const year = today.getFullYear();
     setCurrentDate(`${day}/${month}/${year}`);
-  }, [city, latitude, longitude]); // Actualiza cuando cambian la ciudad o las coordenadas
+  }, [city, latitude, longitude]); 
 
   return { data, currentDate, city };
 }

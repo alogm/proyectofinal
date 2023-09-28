@@ -18,7 +18,7 @@ function Seach({ onSearch }) {
       }
 
       const data = await response.json();
-      onSearch(data); // Envía los datos al componente principal
+      onSearch(data); 
       onCityChange(city);
     } catch (error) {
       

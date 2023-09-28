@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import useApi from './servicios/useApi';// Importa el componente useApi
+import useApi from './servicios/useApi';
 
 function Gps({ onLocationChange }) {
   const handleGetLocation = () => {
