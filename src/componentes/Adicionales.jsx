@@ -25,13 +25,10 @@ function Adicionales({ data }) {
           <h1>Humidity</h1>
           <h1>{data ? data.main.humidity : "Loading..."} %</h1>
           <div className='por'>
-          <h3>0</h3><h3>50</h3><h3>100</h3>
+            <h3>0</h3><h3>50</h3><h3>100</h3>
           </div>
           <div className="humidity-bar">
-            <div
-              className="humidity-fill"
-              style={{ width: `${humidityPercentage}%` }}
-            ></div>
+            <div className="humidity-fill" style={{ width: `${humidityPercentage}%` }}></div>
           </div>
         </div>
       </div>

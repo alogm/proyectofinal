@@ -2,7 +2,7 @@ body{
     background-color: rgb(16, 14, 29);
 }
 .principal{
-    background-image: url("./public/img/Cloud-background.png");
+    background-image: url("https://github.com/alogm/proyectofinal/blob/master/public/img/Cloud-background.png?raw=true");
     background-position: center;
     background-repeat: no-repeat;
     
@@ -17,47 +17,71 @@ body{
 }
 
 .pag{
-    display: block;
-    margin: auto;
-    text-align: center; /* Esto centrará el texto horizontalmente */
-    color: white; /* Cambia el color del texto si es necesario */
-    
-}
-.semana {
     display: flex;
-    flex-direction: row; /* Cambia a dirección de fila para acomodar horizontalmente */
-    flex-wrap: wrap; /* Permite que las secciones se envuelvan en filas múltiples si es necesario */
+    flex-direction: column;
+    align-items: center;
+    color: white;
+
+}
+.pag h1{
+  font-family: 'Fuggles', cursive;
+font-family: 'Gochi Hand', cursive;
+font-family: 'IBM Plex Sans', sans-serif;
+font-family: 'Lora', serif;
+font-size: 65px;
+}
+.pag h3{
+  font-family: 'Fuggles', cursive;
+font-family: 'Gochi Hand', cursive;
+font-family: 'IBM Plex Sans', sans-serif;
+font-family: 'Lora', serif;
+font-size: 28px;
+}
+.pag h5{
+  font-size: 20px;
+}
+.pag img{
+  width: 180px;
+  height: auto;
+}
+.semana{
+    display: flex;
+    flex-direction: row; 
+    flex-wrap: wrap; 
     justify-content: flex-start;
-    align-items: flex-start; /* Alinea las secciones internas arriba */
-    gap: 20px; /* Aumenta el espacio entre las secciones */
+    align-items: flex-start; 
     position: absolute;
-    top: 10px; /* Ajusta la distancia desde la parte superior */
-    right: 20px; /* Ajusta la distancia desde el lado derecho */
-    
-    left: 600px; /* Ajusta la distancia desde el lado izquierdo */
+    top: 10px; 
+    right: 20px; 
+    left: 600px;
     width: auto;
+    font-family: 'Fuggles', cursive;
+    font-family: 'Gochi Hand', cursive;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-family: 'Lora', serif;
+    font-size: 15px;
     
 }
 
 /* Estilo para las secciones internas */
 .semana1, .semana9, .semana17, .semana25, .semana33, .semana2 {
-    flex: 1; /* Permite que ocupen el espacio disponible en la fila */
+    flex: 1; 
     color: aliceblue;
     background-color: rgb(30, 33, 58);
     padding: 10px;
-    max-width: calc(20% - 10px); /* Ajusta el ancho máximo para cinco columnas con espacio entre ellas */
+    max-width: calc(20% - 36px); 
 }
 .semana1 img,
-.semana2 img,
-.semana3 img,
-.semana4 img,
-.semana5 img {
-  width: 100px; /* Ajusta el ancho de la imagen */
-  height: auto; /* Mantén la relación de aspecto original */
-  /* Puedes ajustar el valor de 'width' según tus necesidades */
+.semana9 img,
+.semana17 img,
+.semana25 img,
+.semana33 img {
+  width: 100px; 
+  height: auto; 
+  
 }
 
-/* Estilos adicionales para adi1, adi2, adi3 y adi4 */
+
 .adi1, .adi2, .adi3, .adi4 {
     flex: 1;
     padding: 10px;
@@ -129,4 +153,8 @@ body{
     display: flex;
     justify-content: space-between;
     margin: -5px;
+  }
+  h4{
+    display: inline-block;
+    margin-right: 22px;
   }
