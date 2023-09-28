@@ -41,7 +41,7 @@ font-size: 28px;
   font-size: 20px;
 }
 .pag img{
-  width: 180px;
+  width: 150px;
   height: auto;
 }
 .semana{
@@ -70,6 +70,7 @@ font-size: 28px;
     background-color: rgb(30, 33, 58);
     padding: 10px;
     max-width: calc(20% - 36px); 
+    height: 250px;
 }
 .semana1 img,
 .semana9 img,
@@ -80,7 +81,6 @@ font-size: 28px;
   height: auto; 
   
 }
-
 
 .adi1, .adi2, .adi3, .adi4 {
     flex: 1;
@@ -156,6 +156,9 @@ font-size: 28px;
   }
 
   h4{
+    
     display: inline-block;
     margin-right: 22px;
+    margin-top: 40px;
   }
+  
